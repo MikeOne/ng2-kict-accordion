@@ -1,0 +1,9 @@
+<div class="kict-accordion-pane-header" (click)="activate()" #accordionHeader>
+    <div *ngIf="showBullets" class="kict-accordion-pane-header-number">{{index + 1}}</div>
+    <div class="kict-accordion-pane-header-title">{{title}}</div>
+</div>
+<div class="kict-accordion-pane-content" #accordionContent>
+    <div class="kict-accordion-pane-inner-content" #accordionContentInner>
+        <ng-content></ng-content>
+    </div>
+</div>

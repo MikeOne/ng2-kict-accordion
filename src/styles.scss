@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.kict-accordion-pane.kict-accordion-pane-active .kict-accordion-pane-header .kict-accordion-pane-header-title {
+    color: yellow;
+}
+
+.kict-accordion-pane .kict-accordion-pane-content {
+    //transition: (all 250ms linear 0s) !important;
+}

@@ -1,3 +1,65 @@
-<h1>
-  {{title}}
-</h1>
+<div style="height: 600px; border: 1px solid green; position: relative;">
+    <div kict-accordion #accordion1 [bullets]="true" class="accordion1" [fill]="false">
+        <div kict-accordion-pane [title]="'Pane 1'" [disabled]="disabledPanes[0]">
+            <form [formGroup]="panelForm">
+                <input class="form-control-inline" type="radio" [value]="true" placeholder="John" formControlName="partner">
+                <input class="form-control-inline" type="radio" [value]="false" placeholder="John" formControlName="partner">
+                <div *ngIf="!panelForm.controls.partner.valid">Not Valid</div>
+                <div formArrayName="kids">
+                    <div *ngFor="let kid of panelForm.controls.kids.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <input formControlName="dob">
+                                <button *ngIf="i == panelForm.controls.kids.controls.length-1" (click)="addKid()">+</button>
+                                <button *ngIf="i > 0 && i == panelForm.controls.kids.controls.length-1" (click)="removeKid(i)">-</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+            <pre>Value:{{panelForm.value | json}}</pre>
+
+        </div>
+        <div kict-accordion-pane [title]="'Pane 2'" [disabled]="disabledPanes[1]">
+            <h3>Pane 2 content.</h3>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deleniti dolor, doloremque dolorum eos,
+                est excepturi facilis hic itaque iure molestias nam neque nihil provident qui quod, recusandae rerum.
+                Tempora!
+            </div>
+            <div>Aperiam autem blanditiis eos eveniet exercitationem, inventore nam quas sint. Dicta repellat ut vel?
+                Consequatur corporis et eum excepturi minima tenetur. Atque cum ipsam laborum molestiae necessitatibus
+                similique, sint sunt.
+            </div>
+            <div>A, consequuntur eaque illum incidunt inventore ipsam, magni odio omnis quaerat quisquam similique, suscipit
+                tempora. Animi aspernatur doloremque fugiat in incidunt molestiae nihil quasi rerum soluta unde? Aperiam,
+                et, nostrum!
+                <button (click)="disabledPanes[1] = true;">disable 2</button>
+                <button (click)="goToPane('accordion1', 0)">go to 1</button>
+            </div>
+        </div>
+        <div kict-accordion-pane [title]="'Pane 3'" [disabled]="false">
+            <h3>Pane 3 content.</h3>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deleniti dolor, doloremque dolorum eos,
+                est excepturi facilis hic itaque iure molestias nam neque nihil provident qui quod, recusandae rerum.
+                Tempora!, nostrum!
+            </div>
+            <div *ngIf="show">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at blanditiis cum error iste iusto laboriosam maxime, molestias mollitia nulla obcaecati odio odit perferendis, praesentium quibusdam quidem repellendus totam ullam!
+            </div>
+            <button (click)="showExtra()">more</button>
+        </div>
+        <div kict-accordion-pane [title]="'Pane 4'" [disabled]="false">
+            <h3>Pane 3 content.</h3>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deleniti dolor, doloremque dolorum eos,
+                est excepturi facilis hic itaque iure molestias nam neque nihil provident qui quod, recusandae rerum.
+                Tempora!, nostrum!
+            </div>
+            <div *ngIf="show">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at blanditiis cum error iste iusto laboriosam maxime, molestias mollitia nulla obcaecati odio odit perferendis, praesentium quibusdam quidem repellendus totam ullam!
+            </div>
+            <button (click)="showExtra()">more</button>
+        </div>
+    </div>
+</div>
+
+
