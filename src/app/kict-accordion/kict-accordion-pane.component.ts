@@ -10,7 +10,6 @@ import { Subject }  from 'rxjs/Subject';
 
 @Component({
     selector: '[kict-accordion-pane]',
-    // templateUrl: './kict-accordion-pane.component.html',
     styleUrls: ['./kict-accordion-pane.component.scss'],
     host: {'class': 'kict-accordion-pane'},
     template: `

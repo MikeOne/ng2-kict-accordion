@@ -17,7 +17,7 @@ import { Subscription }         from "rxjs/Subscription";
 
 @Component({
     selector: '[kict-accordion]',
-    templateUrl: './kict-accordion.component.html',
+    template: '<ng-content></ng-content>',
     styleUrls: ['./kict-accordion.component.scss'],
     encapsulation: ViewEncapsulation.None,
     host: {'class':'kict-accordion'}
